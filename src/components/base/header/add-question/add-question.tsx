@@ -5,7 +5,7 @@ interface AddQuestionProps {
 const AddQuestion: React.FC<AddQuestionProps> = ({ className }) => {
   return (
     <div className={className}>
-      <Link to="/">
+      <Link to="/createquestion">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="w-10 h-10 md:w-16 md:h-16 cursor-pointer"

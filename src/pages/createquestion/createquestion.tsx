@@ -49,7 +49,7 @@ const Createquestion: React.FC = () => {
               placeholder="Title"
               {...register('questiontitle', { required: 'This field is required' })}
             />
-            {errors.questiontitle && <p className='text-red-600'>{errors.questiontitle.message}</p>}
+            {errors.questiontitle && <p className='text-red-800 text-sm'>{errors.questiontitle.message}</p>}
           </div>
           <div className="grid w-full items-center gap-2 mb-5">
             <Label className="text-sm" htmlFor="questiondescrib">Question Description</Label>
@@ -58,7 +58,7 @@ const Createquestion: React.FC = () => {
               className="resize-none"
               {...register('questiondescrib', { required: 'This field is required' })}
             />
-            {errors.questiondescrib && <p className='text-red-600'>{errors.questiondescrib.message}</p>}
+            {errors.questiondescrib && <p className='text-red-800 text-sm'>{errors.questiondescrib.message}</p>}
           </div>
           <div>
             <Label className="text-sm" htmlFor="tags">Tags</Label>
@@ -70,7 +70,7 @@ const Createquestion: React.FC = () => {
                 <Select
                   {...field}
                   mode="tags"
-                  className="w-[100%] my-5"
+                  className="w-[100%] mt-5"
                   placeholder="Tags"
                   options={options}
                 >
@@ -78,7 +78,7 @@ const Createquestion: React.FC = () => {
                 </Select>
               )}
             />
-            {errors.tags && <p className='text-red-600'>{errors.tags.message}</p>}
+            {errors.tags && <p className='text-red-800 text-sm mb-5'>{errors.tags.message}</p>}
           </div>
           <Button
             type="submit"

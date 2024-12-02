@@ -111,7 +111,7 @@ export const SignUp: React.FC = () => {
           </form>
           <div className="flex justify-between mt-4 text-sm">
             <span>Already have an account?</span>
-            <Link to="/signin" className="text-blue-500 hover:underline">
+            <Link to="/sign-in" className="text-blue-500 hover:underline">
               Log In
             </Link>
           </div>

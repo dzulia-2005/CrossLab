@@ -70,7 +70,7 @@ const Createquestion: React.FC = () => {
                 <Select
                   {...field}
                   mode="tags"
-                  className="w-[100%] mt-5"
+                  className="w-[100%] mt-5 mb-5"
                   placeholder="Tags"
                   options={options}
                 >

@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
 import { Button, buttonVariants } from "../../components/ui/button";
 import { AuthShell } from "@/components/authForm";
 
-export const SignUp: React.FC = () => {
+const SignUp: React.FC = () => {
   
     const {
       register: formRegister,
@@ -119,3 +119,5 @@ export const SignUp: React.FC = () => {
       
     );
   };
+
+  export default SignUp

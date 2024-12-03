@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 import { AuthShell } from "@/components/authForm";
 import { login } from "@/api/logIn";
 
-export const SignIn: React.FC = () => {
+const SignIn: React.FC = () => {
     const navigate = useNavigate();
   
     const { register, handleSubmit, formState: { errors } } = useForm({
@@ -78,3 +78,5 @@ export const SignIn: React.FC = () => {
         </AuthShell>
     );
 };
+
+export default SignIn;

@@ -46,8 +46,6 @@ const Home: React.FC = () => {
     <div className="px-4 py-8 flex-grow">
       <div className="mx-auto flex flex-col md:flex-row gap-8">
         <section className="md:w-2/3 flex flex-col gap-5">
-          {/* აქ უნდა იყოს ქარდები  */}
-
           {questionCards.map((question, index) => (
             <NavLink to="/question-page">
               <Card key={index} className="py-3 px-5 rounded-3xl">

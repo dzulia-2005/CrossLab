@@ -1,22 +1,24 @@
 export type SignInPayload = {
-    payload: { email: string; password: string };
+  payload: { email: string; password: string };
+};
+
+export type SignUpPayload = {
+  payload: {
+    username: string;
+    password: string;
+    confirmPassword: string;
+    first_name?: string;
+    last_name?: string;
+    email?: string;
   };
-  
-  export type SignUpPayload = {
-    payload: {
-      email: string;
-      password: string;
-      confirmPassword: string;
-      fullName: string;
-    };
+};
+export type RefreshPayload = {
+  payload: {
+    refreshToken: string;
   };
-  export type RefreshPayload = {
-    payload: {
-      refreshToken: string;
-    };
-  };
-  
-  export type MeResponse = {
-    email: string;
-    fullName: string;
-  };
+};
+
+export type MeResponse = {
+  email: string;
+  fullName: string;
+};

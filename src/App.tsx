@@ -26,7 +26,7 @@ function App() {
           }
         />
         <Route
-          path="/sign-in"
+          path="/logIn"
           element={
             <Suspense fallback={<div>Loading...</div>}>
               <LazySignIn />

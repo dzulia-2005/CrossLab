@@ -10,18 +10,18 @@ import { useSignUp } from "@/react-query/mutation/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { SignUpSchema } from "./schema";
 
-
 type SignUpFormValues = SignUpPayload["payload"];
 
 const signUpFormDefaultValues: SignUpFormValues = {
-  email: "",
-  fullName: "",
+  username: "",
   password: "",
   confirmPassword: "",
+  first_name: "",
+  last_name: "",
+  email: "",
 };
 
 const SignUp: React.FC = () => {
-
   const navigate = useNavigate();
 
   const {
@@ -32,17 +32,24 @@ const SignUp: React.FC = () => {
     defaultValues: signUpFormDefaultValues,
     resolver: zodResolver(SignUpSchema),
   });
-  
+
   const { mutate: handleSignUp } = useSignUp();
-  
+
   const onSubmit = (signUpPayload: SignUpFormValues) => {
+    console.log("Submitting sign-up with payload:", signUpPayload); // log to check the payload
+
     handleSignUp(
       { payload: signUpPayload },
       {
         onSuccess: () => {
+          console.log("Sign-up success, navigating to login");
+
           navigate("/login");
         },
-      },
+        onError: (error) => {
+          console.error("Sign-up failed:", error);
+        },
+      }
     );
   };
 
@@ -60,55 +67,86 @@ const SignUp: React.FC = () => {
             Name
           </label>
           <Controller
-          control={control}
-          name="fullName"
-          render={({ field: {onChange,  value } }) => {
-            return (
+            control={control}
+            name="first_name"
+            render={({ field: { onChange, value } }) => (
               <Input
                 onChange={onChange}
                 value={value}
-                placeholder="Ann Jamth"
+                placeholder="First Name"
               />
-            );
-          }}
-        />
-        {errors.fullName && (
-            <p className="text-red-800 text-sm">{errors.fullName.message}</p>
+            )}
+          />
+          {errors.first_name && (
+            <p className="text-red-800 text-sm">{errors.first_name.message}</p>
+          )}
+        </div>
+        <div className="mb-4">
+          <label htmlFor="last_name" className="block text-sm font-medium mb-1">
+            Last Name
+          </label>
+          <Controller
+            control={control}
+            name="last_name"
+            render={({ field: { onChange, value } }) => (
+              <Input
+                onChange={onChange}
+                value={value}
+                placeholder="Last Name"
+              />
+            )}
+          />
+          {errors.last_name && (
+            <p className="text-red-800 text-sm">{errors.last_name.message}</p>
           )}
         </div>
         <div className="mb-4">
           <label htmlFor="email" className="block text-sm font-medium mb-1">
             Email
           </label>
+
           <Controller
-          control={control}
-          name="email"
-          render={({ field: { onChange, value } }) => {
-            return (
+            control={control}
+            name="email"
+            render={({ field: { onChange, value } }) => (
               <Input
-              onChange={onChange}
-              value={value}
-              placeholder="Ann@example.com" />
-            );
-          }}
-        />
-        {errors.email && (
+                type="email"
+                onChange={onChange}
+                value={value}
+                placeholder="Email"
+              />
+            )}
+          />
+          {errors.email && (
             <p className="text-red-800 text-sm">{errors.email.message}</p>
           )}
         </div>
         <div className="mb-4">
-          <label htmlFor="password" className="block text-sm font-medium mb-1">
+          <label htmlFor="username" className="block text-sm font-medium mb-1">
+            Username
+          </label>
+          <Controller
+            control={control}
+            name="username"
+            render={({ field: { onChange, value } }) => (
+              <Input onChange={onChange} value={value} placeholder="Username" />
+            )}
+          />
+          <label htmlFor="Password" className="block text-sm font-medium mb-1">
             Password
           </label>
           <Controller
-          control={control}
-          name="password"
-          render={({ field: { onChange, value } }) => {
-            return (
-              <Input onChange={onChange} value={value} placeholder="Enter your password" />
-            );
-          }}
-        />
+            control={control}
+            name="password"
+            render={({ field: { onChange, value } }) => (
+              <Input
+                type="password"
+                onChange={onChange}
+                value={value}
+                placeholder="Enter your password"
+              />
+            )}
+          />
           {errors.password && (
             <p className="text-red-800 text-sm">{errors.password.message}</p>
           )}
@@ -121,14 +159,17 @@ const SignUp: React.FC = () => {
             Confirm Password
           </label>
           <Controller
-          control={control}
-          name="confirmPassword"
-          render={({ field: { onChange, value } }) => {
-            return (
-              <Input onChange={onChange} value={value} placeholder="Confirm your passwordd" />
-            );
-          }}
-        />
+            control={control}
+            name="confirmPassword"
+            render={({ field: { onChange, value } }) => (
+              <Input
+                type="password"
+                onChange={onChange}
+                value={value}
+                placeholder="Confirm your password"
+              />
+            )}
+          />
           {errors.confirmPassword && (
             <p className="text-red-800 text-sm">
               {errors.confirmPassword.message}
@@ -136,7 +177,7 @@ const SignUp: React.FC = () => {
           )}
         </div>
         <Button
-         onClick={handleSubmit(onSubmit)}
+          onClick={handleSubmit(onSubmit)}
           className={cn(buttonVariants({ variant: "auth", size: "lg" }))}
         >
           Sign Up
@@ -153,6 +194,3 @@ const SignUp: React.FC = () => {
 };
 
 export default SignUp;
-
-
-

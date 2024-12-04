@@ -1,5 +1,12 @@
+// export type SignInPayload = {
+//   payload: { email: string; password: string };
+// };
+
 export type SignInPayload = {
-  payload: { email: string; password: string };
+  payload: {
+    username: string; // If you're using username for login
+    password: string;
+  };
 };
 
 export type SignUpPayload = {
@@ -12,6 +19,7 @@ export type SignUpPayload = {
     email?: string;
   };
 };
+
 export type RefreshPayload = {
   payload: {
     refreshToken: string;

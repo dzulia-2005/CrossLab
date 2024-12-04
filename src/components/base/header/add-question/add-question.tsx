@@ -14,9 +14,9 @@ const AddQuestion: React.FC<AddQuestionProps> = ({ className }) => {
           <path
             fill="none"
             stroke="currentColor"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="32"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="32"
             d="M256 112v288M400 256H112"
           />
         </svg>

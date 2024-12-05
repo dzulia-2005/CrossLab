@@ -74,8 +74,7 @@ const Home: React.FC = () => {
           </aside>
         </div>
       </div>
-  
-
+    </>
   );
 };
 

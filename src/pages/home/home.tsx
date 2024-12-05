@@ -2,6 +2,7 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import React from "react";
 import image from "../../assets/124599.jpeg";
+
 import Header from "@/components/base/header/header";
 
 const Home: React.FC = () => {
@@ -73,7 +74,8 @@ const Home: React.FC = () => {
           </aside>
         </div>
       </div>
-    </>
+  
+
   );
 };
 

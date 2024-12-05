@@ -4,8 +4,11 @@ import DefaultLayout from "./layouts/default/layoutdefault";
 // import Createquestion from "./pages/createquestion/createquestion";
 // import AuthGuard from "@/route-guards";
 import { lazy, Suspense } from "react";
+// import AuthGuard from "@/route-guards";
+// import Home from "@/pages/home/home";
+// import Createquestion from "@/pages/createquestion/createquestion";
 
-const LazySignIn = lazy(() => import("./pages/auth/logIn"));
+const LazySignIn = lazy(() => import("./pages/auth/logIn/index"));
 const LazySignUp = lazy(() => import("./pages/auth/signUp"));
 const LazyHomePage = lazy(() => import("./pages/home/home"));
 const LazyCreateQuestionPage = lazy(

@@ -8,8 +8,8 @@ const AuthGuard: React.FC<PropsWithChildren> = ({ children }) => {
   // const { user } = useAuthContext();
   const [user] = useAtom(userAtom);
 
-  if (user) {
-    return <Navigate to="/" />;
+  if (!user) {
+    return <Navigate to="/login" />;
   }
   return children || <Outlet />;
 };

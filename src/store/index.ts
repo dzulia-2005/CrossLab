@@ -1,3 +1,5 @@
 import { atom } from "jotai";
 
-export const userAtom = atom<any>(null);
+export type User = boolean | null;
+
+export const userAtom = atom<User>(null);

@@ -11,7 +11,8 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Controller, useForm } from "react-hook-form";
 import { SignInPayload } from "@/api/auth/index.types";
 import { queryClient } from "@/main";
-
+import { useAtom } from "jotai";
+import { userAtom } from "@/store";
 type SignInFormValues = SignInPayload["payload"];
 
 const signInFormDefaultValues: SignInFormValues = {
@@ -21,6 +22,7 @@ const signInFormDefaultValues: SignInFormValues = {
 
 const SignIn: React.FC = () => {
   const navigate = useNavigate();
+  const [, setUser] = useAtom(userAtom);
 
   const {
     control,
@@ -38,6 +40,9 @@ const SignIn: React.FC = () => {
       { payload: signInPayload },
       {
         onSuccess: (res) => {
+          setUser(true);
+          console.log("onSuccess:", userAtom);
+
           afterSignInSuccess({
             accessToken: res.accessToken,
             refreshToken: res.refreshToken,

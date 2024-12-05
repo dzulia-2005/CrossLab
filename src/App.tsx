@@ -8,7 +8,7 @@ import { lazy, Suspense } from "react";
 // import Home from "@/pages/home/home";
 // import Createquestion from "@/pages/createquestion/createquestion";
 
-const LazySignIn = lazy(() => import("./pages/auth/logIn/index"));
+const LazySignIn = lazy(() => import("./pages/auth/logIn"));
 const LazySignUp = lazy(() => import("./pages/auth/signUp"));
 const LazyHomePage = lazy(() => import("./pages/home/home"));
 const LazyCreateQuestionPage = lazy(
@@ -29,7 +29,7 @@ function App() {
           }
         />
         <Route
-          path="/sign-in"
+          path="/login"
           element={
             <Suspense fallback={<div>Loading...</div>}>
               <LazySignIn />

@@ -24,9 +24,9 @@ export const signUp = ({ payload }: SignUpPayload) => {
     .post(AUTH_ENDPOINTS.SIGN_UP, {
       username: payload.username,
       password: payload.password,
-      first_name: payload.first_name || "", // Optional
-      last_name: payload.last_name || "", // Optional
-      email: payload.email || "", // Optional
+      // first_name: payload.first_name || "", // Optional
+      // last_name: payload.last_name || "", // Optional
+      // email: payload.email || "", // Optional
     })
     .then((res) => res.data)
     .catch((error) => {

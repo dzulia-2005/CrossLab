@@ -16,9 +16,9 @@ const signUpFormDefaultValues: SignUpFormValues = {
   username: "",
   password: "",
   confirmPassword: "",
-  first_name: "",
-  last_name: "",
-  email: "",
+  // first_name: "",
+  // last_name: "",
+  // email: "",
 };
 
 const SignUp: React.FC = () => {
@@ -62,11 +62,11 @@ const SignUp: React.FC = () => {
         Create your account to start connection
       </p>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="mb-4">
+        {/* <div className="mb-4">
           <label htmlFor="name" className="block text-sm font-medium mb-1">
             Name
-          </label>
-          <Controller
+          </label> */}
+        {/* <Controller
             control={control}
             name="first_name"
             render={({ field: { onChange, value } }) => (
@@ -120,7 +120,7 @@ const SignUp: React.FC = () => {
           {errors.email && (
             <p className="text-red-800 text-sm">{errors.email.message}</p>
           )}
-        </div>
+        </div> */}
         <div className="mb-4">
           <label htmlFor="username" className="block text-sm font-medium mb-1">
             Username

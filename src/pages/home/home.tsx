@@ -2,11 +2,15 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import React from "react";
 import image from "../../assets/124599.jpeg";
+
 // import Header from "@/components/base/header/header";
+
+import Header from "@/components/base/header/header";
 
 const Home: React.FC = () => {
   return (
     <>
+      <Header />
       {/* <Header /> */}
       <div className="px-4 py-8 flex-grow">
         <div className="mx-auto flex flex-col md:flex-row gap-8">

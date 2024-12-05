@@ -1,9 +1,7 @@
-import React, { PropsWithChildren } from 'react'
+import React, { PropsWithChildren } from "react";
 
-const Pagecontainer:React.FC<PropsWithChildren> = ({children}) => {
-  return (
-    <div>{children}</div>
-  )
-}
+const PageContainer: React.FC<PropsWithChildren> = ({ children }) => {
+  return <div>{children}</div>;
+};
 
-export default Pagecontainer
+export default PageContainer;
